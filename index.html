@@ -1,0 +1,64 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="stmarkdown.css">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+</head>
+<h1><a href="#homework-4" id="homework-4">Homework 4</a></h1>
+<h3><a href="#yongyi-lu" id="yongyi-lu">Yongyi Lu</a></h3>
+<p><strong>Methods:</strong> This is a simulated data and there is a total of 30 observations. The graph is shown as below.</p>
+<pre><code>. cls
+
+. clear
+
+. set obs 30
+
+. gen age = (rnormal()*15)+57
+
+. gen age_t = (rt(_N)*15)+57 
+
+. 
+. hist age, ///
+&gt;    fcolor(orange%40) /// simulated normal 
+&gt;    addplot(hist age_t, fcolor(midblue%50)) /// simulated t-distribut
+&gt; ion 
+&gt;    normal /// theoretical normal
+&gt;    legend(on ///
+&gt;       lab(1 &quot;Sampled from Normal&quot;) ///
+&gt;           lab(2 &quot;Theoretical Normal&quot;) ///
+&gt;           lab(3 &quot;Sampled from t-distribution&quot;) ///
+&gt;           )
+
+. 
+. graph export histogram.png, replace 
+
+. 
+. 
+</code></pre>
+<p><img src="Graph1.svg" ></p>
+<pre><code>. 
+. 
+</code></pre>
+<pre><code>. display c(N) 
+30
+
+. display c(k)  
+2
+
+. list in 1/5 
+
+     +---------------------+
+     |      age      age_t |
+     |---------------------|
+  1. | 87.38382   77.73427 |
+  2. | 72.63947   53.71457 |
+  3. | 61.46569   51.67147 |
+  4. | 31.16803   74.93301 |
+  5. | 46.06201    60.6434 |
+     +---------------------+
+
+</code></pre>
+<p><strong>Results:</strong> The results are based on simulated data.The results of the study shows that the distribution of $Age, years$ $~$ ~ $N$$( \mu = 57, \sigma^2 = 225)$ is to provide amathematical representation of the age distribution.</p>
